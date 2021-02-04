@@ -5,22 +5,24 @@
 </head>
 
 <body>
-<h2>Welcome to my main page</h2>
-<br>1
-<br>2
-<br>3
-<br>4
-<br>5
-<br>6
-<br>7
-<p>Click below button to redirect the shopping cart</p>
+<h2><center>Welcome to my Shop</center></h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>Click below button to redirect the Products</p>
 
-<form:form method = "GET" action = "/koszyk">
+<form:form method = "GET" action = "/products">
 
     <table>
         <tr>
             <td>
-                <input type = "submit" value = "KOSZYK"/>
+
+                <input type = "submit" value = "Products"/>
+
             </td>
         </tr>
     </table>

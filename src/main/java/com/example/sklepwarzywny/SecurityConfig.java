@@ -13,7 +13,9 @@ public class SecurityConfig<MyBasicAuthenticationEntryPoint> extends WebSecurity
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user").password("{noop}password").roles("USER");
+            .withUser("user")
+            .password("{noop}password")
+            .roles("USER");
     }
 
     @Override
@@ -24,13 +26,20 @@ public class SecurityConfig<MyBasicAuthenticationEntryPoint> extends WebSecurity
                 .authorizeRequests()
 //                .antMatchers("/**").hasAnyRole("USER")
 
-                .antMatchers("/index","/").permitAll()
-                .antMatchers("/testdb","/").permitAll()
-                .antMatchers("/koszyk").hasAnyRole("USER")
+                .antMatchers("/index", "/")
+                .permitAll()
+                .antMatchers("/testdb", "/")
+                .permitAll()
+                .antMatchers("/products")
+                .hasAnyRole("USER")
                 .and()
-                .formLogin().loginPage("/login").permitAll();
+                .formLogin()
+                .loginPage("/login")
+                .permitAll();
 
-                http.headers().frameOptions().disable();
+        http.headers()
+            .frameOptions()
+            .disable();
 
 
     }
