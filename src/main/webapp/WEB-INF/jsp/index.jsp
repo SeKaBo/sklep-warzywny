@@ -27,6 +27,29 @@
         </tr>
     </table>
 </form:form>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<p>Click below button to redirect the Cart</p>
+
+<form:form method = "GET" action = "/cart">
+
+    <table>
+        <tr>
+            <td>
+
+                <input type = "submit" value = "Cart"/>
+
+            </td>
+        </tr>
+    </table>
+</form:form>
+
 </body>
 
 </html>

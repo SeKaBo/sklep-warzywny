@@ -9,13 +9,14 @@
 </head>
 
 <body>
-<h3>Lista produktów</h3>
+<h3>Product List</h3>
 
 <table>
     <thead>
-    <th>Dodaj do koszyka</th>
-    <th>Nazwa Produktu</th>
-    <th>Cena</th>
+    <th>Add to Cart</th>
+    <th>Product name</th>
+    <th>Price</th>
+
     </thead>
     <c:forEach items="${products}" var="product">
         <tr>

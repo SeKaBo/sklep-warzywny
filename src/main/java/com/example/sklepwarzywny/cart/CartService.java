@@ -17,7 +17,21 @@ public class CartService {
 
     }
 
+    public List<Product> removeFromCart(Product product) {
+        itemsList.remove(product);
+        return this.itemsList;
+
+    }
+
     public List<Product> getCartState() {
+
         return itemsList;
     }
 }
+//
+//    private List<Product> itemsListt = new ArrayList<>();
+//
+//    public List<Product> removeFromCart(Product product) {
+//        itemsList.remove(product);
+//        return this.itemsList;
+//    }

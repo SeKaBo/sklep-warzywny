@@ -8,16 +8,23 @@
     <title>Cart</title>
 </head>
 <body>
-<h3>Koszyk</h3>
+<h3>Cart</h3>
 <table>
     <thead>
-    <th>Nazwa Produktu</th>
-    <th>Cena</th>
+    <th>Product Name</th>
+    <th>Price</th>
+    <th>Action</th>
     </thead>
     <c:forEach items="${products}" var="product">
         <tr>
             <td>${product.getName()}</td>
             <td>${product.getPrice()}</td>
+            <td>
+                <form action="delete" method="post">
+                    <input type="hidden" name="productId" value="${product.id}">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
 
 
@@ -26,19 +33,53 @@
 
 <%--<form:form method = "GET" action = "/cart">--%>
 ----------------------------------------------
+
+
 <form:form method = "GET" action = "/products">
 
     <table>
         <tr>
             <td>
 
-                <input type = "submit" value = "Produkty"/>
+                <th>Subtotal : </th>
+
+            </td>
+        </tr>
+    </table>
+</form:form>
+
+----------------------------------------------
+
+<form:form method = "GET" action = "/products">
+
+    <table>
+        <tr>
+            <td>
+
+                <input type = "submit" value = "Products"/>
 
             </td>
         </tr>
     </table>
 </form:form>
 ------------------------------------------------
+
+<p>Click below button to redirect the Main Page</p>
+
+<form:form method = "GET" action = "/index">
+
+    <table>
+        <tr>
+            <td>
+
+                <input type = "submit" value = "Main Page"/>
+
+            </td>
+        </tr>
+    </table>
+</form:form>
+------------------------------------------------
+
 </body>
 
 </html>

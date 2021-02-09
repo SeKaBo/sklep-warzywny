@@ -31,7 +31,21 @@ public class ProductsService {
         List<Product> products = List.of(
                 new Product("Carrot", 4.30),
                 new Product("Apple", 5.20)
-                                        );
+        );
+        return Utils.toList(
+                productsRepository.saveAll(products));
+    }
+
+
+    // tu chciałbym usuwać produkty ale potrzebuje id
+
+
+    @PostConstruct
+    public List<Product> removeDefaultProducts() {
+        List<Product> products = List.of(
+//                new Product("Carrot", 4.30),
+//                new Product("Apple", 5.20)
+        );
         return Utils.toList(
                 productsRepository.saveAll(products));
     }

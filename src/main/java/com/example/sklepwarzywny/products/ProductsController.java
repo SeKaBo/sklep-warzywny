@@ -2,10 +2,8 @@ package com.example.sklepwarzywny.products;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
@@ -42,6 +40,20 @@ public class ProductsController {
         List<ProductDto> productDtos = new ArrayList<>();
         for (Product product : allProducts) {
             productDtos.add(new ProductDto(product.getId(), product.getName(), product.getPrice()));
+        }
+        ModelAndView modelAndView = new ModelAndView("products");
+        modelAndView.addObject("products", productDtos);
+        return modelAndView;
+    }
+
+    //    }
+//
+    @DeleteMapping
+    public ModelAndView removeProducts(@ModelAttribute("product") ProductDto productDto) {
+        List<Product> allProducts = products.removeDefaultProducts();
+        List<ProductDto> productDtos = new ArrayList<>();
+        for (Product product : allProducts) {
+            productDtos.remove(new ProductDto(product.getId(), product.getName(), product.getPrice()));
         }
         ModelAndView modelAndView = new ModelAndView("products");
         modelAndView.addObject("products", productDtos);

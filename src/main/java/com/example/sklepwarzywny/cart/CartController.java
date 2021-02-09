@@ -6,10 +6,7 @@ import com.example.sklepwarzywny.products.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -53,5 +50,20 @@ public class CartController {
         return productDtos;
     }
 
+// wartość koszyka
+
+// usuwanie z koszyka
+
+
+    @DeleteMapping("delete")
+    public ModelAndView removeFromCart(@ModelAttribute("productId") Long productId) {
+        Product product = productsService.getById(productId);
+        List<Product> cartProducts = cartService.removeFromCart(product);
+        ModelAndView modelAndView = new ModelAndView("cart");
+        modelAndView.addObject("products", asDtos(cartProducts));
+        return modelAndView;
+//
     }
+}
+
 

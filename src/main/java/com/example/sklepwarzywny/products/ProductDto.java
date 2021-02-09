@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class ProductDto {
 
-    // poczytaj o finalach i hashcode&equals
+
     private final Long id;
     private final String name;
     private final Double price;
