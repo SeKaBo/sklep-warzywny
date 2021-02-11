@@ -15,20 +15,18 @@
     <th>Price</th>
     <th>Action</th>
     </thead>
-    <c:forEach items="${products}" var="product">
+    <div>    <c:forEach items="${products}" var="product">
         <tr>
             <td>${product.getName()}</td>
-            <td>${product.getPrice()}</td>
             <td>
-                <form action="delete" method="post">
-                    <input type="hidden" name="productId" value="${product.id}">
-                    <input type="submit" value="Delete">
+                <form action="/cart/delete/${product.getId()}" method="POST">
+                    <input type="submit" value="delete">
                 </form>
             </td>
         </tr>
 
 
-    </c:forEach>
+    </c:forEach></div>
 </table>
 
 <%--<form:form method = "GET" action = "/cart">--%>
@@ -41,7 +39,9 @@
         <tr>
             <td>
 
-                <th>Subtotal : </th>
+                <div>
+                    <span>Total count ${sum}</span>
+                </div>
 
             </td>
         </tr>
@@ -49,6 +49,7 @@
 </form:form>
 
 ----------------------------------------------
+<p>Click below button to redirect the Products</p>
 
 <form:form method = "GET" action = "/products">
 
