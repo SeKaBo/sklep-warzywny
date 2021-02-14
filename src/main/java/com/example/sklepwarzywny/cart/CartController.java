@@ -55,7 +55,7 @@ public class CartController {
 // usuwanie z koszyka
 
 
-    @DeleteMapping("delete")
+    @PostMapping("delete")
     public ModelAndView removeFromCart(@ModelAttribute("productId") Long productId) {
         Product product = productsService.getById(productId);
         List<Product> cartProducts = cartService.removeFromCart(product);

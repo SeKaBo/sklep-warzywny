@@ -19,7 +19,8 @@
         <tr>
             <td>${product.getName()}</td>
             <td>
-                <form action="/cart/delete/${product.getId()}" method="POST">
+                <form action="/cart/delete" method="post">
+                    <input type="hidden" name="productId" value="${product.getId()}">
                     <input type="submit" value="delete">
                 </form>
             </td>
