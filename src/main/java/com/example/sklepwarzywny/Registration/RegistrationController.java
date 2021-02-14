@@ -1,14 +1,17 @@
 package com.example.sklepwarzywny.Registration;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import com.example.sklepwarzywny.UserForm;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+@Controller
 public class RegistrationController {
 
-    @RequestMapping("/registraton")
-    public ModelAndView registration() {
+    @RequestMapping("/registration")
+    public ModelAndView registration(Model model) {
+        model.addAttribute("userForm", new UserForm());
         return new ModelAndView("registration");
 
 //    }

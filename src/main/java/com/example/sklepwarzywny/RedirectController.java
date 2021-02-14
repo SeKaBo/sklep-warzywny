@@ -18,11 +18,6 @@ public class RedirectController {
         return "redirect:products";
     }
 
-    @RequestMapping("/registration")
-    public String redirectToRegistration() {
-        return "redirect:registration";
-    }
-
 
 
 
